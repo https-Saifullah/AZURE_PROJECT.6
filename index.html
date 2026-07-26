@@ -1,24 +1,91 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saif Hasan — AI Portfolio</title>
+    <title>Saif Hasan | AI Engineer & Full Stack Developer</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+
+        <div class="logo">
+            Saif Hasan
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#chat">AI</a></li>
+        </ul>
+
+        <div class="nav-buttons">
+            <a href="https://github.com/https-Saifullah" target="_blank" class="nav-btn">
+                GitHub
+            </a>
+
+            <a href="#" class="nav-btn">
+                LinkedIn
+            </a>
+        </div>
+
+    </nav>
+
+
     <div class="container">
 
-        <!-- Hero Section -->
-        <div class="hero">
-            <div class="avatar">SH</div>
+        <!-- Hero -->
+
+        <section class="hero" id="hero">
+
+            <div class="avatar">
+
+                <!-- Replace this image -->
+                <img src="images/profile.jpg" alt="Saif Hasan">
+
+            </div>
+
+            <span class="status">
+                ● Available for Opportunities
+            </span>
+
             <h1>Saif Hasan</h1>
-            <p class="tagline">
-                3rd Year CSE Student · AI Engineer · Full Stack Developer · Building Intelligent Applications
+
+            <h2>
+                AI Engineer · Full Stack Developer
+            </h2>
+
+            <p class="hero-text">
+
+                3rd Year Computer Science student passionate about
+                Artificial Intelligence, Machine Learning, Deep Learning,
+                Azure AI and building real-world software that solves
+                meaningful problems.
+
             </p>
 
+            <div class="hero-buttons">
+
+                <a href="#projects" class="primary-btn">
+                    View Projects
+                </a>
+
+                <a href="#" class="secondary-btn">
+                    Download Resume
+                </a>
+
+            </div>
+
             <div class="tags">
+
                 <span class="tag">Artificial Intelligence</span>
                 <span class="tag">Machine Learning</span>
                 <span class="tag">Deep Learning</span>
@@ -27,68 +94,162 @@
                 <span class="tag">Flask</span>
                 <span class="tag">JavaScript</span>
                 <span class="tag">Cloud</span>
-            </div>
-        </div>
 
-        <!-- Projects Section -->
-        <div class="section">
+            </div>
+
+        </section>
+
+
+        <!-- About -->
+
+        <section class="section" id="about">
+
+            <h2>About Me</h2>
+
+            <p class="about-text">
+
+                I'm a third-year Computer Science student with a passion
+                for Artificial Intelligence, Machine Learning and Full Stack
+                Development.
+
+                I enjoy creating intelligent applications using Azure AI,
+                Python, Flask and modern web technologies while constantly
+                exploring new ideas that solve real-world problems.
+
+            </p>
+
+        </section>
+
+
+
+        <!-- Featured Projects -->
+
+        <section class="section" id="projects">
+
             <h2>Featured Projects</h2>
 
             <div class="projects">
 
-                <div class="project-card">
-                    <span class="project-icon">🛡️</span>
-                    <h3>SafeRoute AI</h3>
-                    <p>
-                        AI-powered navigation system that recommends the safest routes using Azure Maps and Azure AI.
-                    </p>
-                </div>
 
                 <div class="project-card">
+
                     <span class="project-icon">🎤</span>
-                    <h3>EchoAI</h3>
+
+                    <h3>Echo AI</h3>
+
                     <p>
-                        Voice Notes application with Speech-to-Text and Text-to-Speech using Azure AI Speech.
+
+                        AI-powered voice assistant built with Azure AI Speech
+                        supporting Speech-to-Text and Text-to-Speech.
+
                     </p>
+
                 </div>
 
+
                 <div class="project-card">
-                    <span class="project-icon">📄</span>
-                    <h3>AskMyDocs</h3>
+
+                    <span class="project-icon">🖼️</span>
+
+                    <h3>Smart Image Tagger</h3>
+
                     <p>
-                        AI-powered document assistant built using Azure AI Search and Azure OpenAI.
+
+                        Automatically analyzes images and generates intelligent
+                        captions and descriptive tags using Azure AI Vision.
+
                     </p>
+
                 </div>
+
+
+
+                <div class="project-card">
+
+                    <span class="project-icon">⚽</span>
+
+                    <h3>SoccerGPT</h3>
+
+                    <p>
+
+                        AI-powered football assistant using Azure OpenAI that
+                        answers football-related questions instantly.
+
+                    </p>
+
+                </div>
+
 
             </div>
-        </div>
 
-        <!-- AI Chat Section -->
-        <div class="section">
+        </section>
+
+
+
+        <!-- AI Chat -->
+
+        <section class="section" id="chat">
+
             <h2>Chat with My AI</h2>
 
             <p class="chat-desc">
-                Ask anything about my projects, technical skills, experience, Azure AI work, or interests.
+
+                Ask me about my projects, experience,
+                Azure AI, Machine Learning, or anything
+                related to my work.
+
             </p>
 
             <div id="chatBox" class="chat-box">
+
                 <div class="message bot">
-                    👋 Hi! I'm Saif's AI assistant. Ask me anything about my projects, skills, or experience!
+
+                    👋 Hi! I'm Saif's AI assistant.
+
+                    Ask me anything about my projects,
+                    skills, technologies or experience.
+
                 </div>
+
             </div>
 
             <div class="input-row">
+
                 <input
                     type="text"
                     id="userInput"
-                    placeholder="Ask me about my projects, Azure, AI, or experience..."
-                />
-                <button id="sendBtn">Ask</button>
+                    placeholder="Ask about my projects, Azure, AI, or experience..."
+                >
+
+                <button id="sendBtn">
+                    Ask AI
+                </button>
+
             </div>
-        </div>
+
+        </section>
+
+
+
+        <!-- Footer -->
+
+        <footer>
+
+            <p>
+
+                Designed & Built by
+                <strong>Saif Hasan</strong>
+
+                • Powered by Azure OpenAI
+
+            </p>
+
+        </footer>
+
 
     </div>
 
     <script src="app.js"></script>
+
 </body>
 </html>
