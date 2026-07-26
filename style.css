@@ -442,6 +442,10 @@ body{
 
     overflow:hidden;
 
+    display:flex;
+
+    flex-direction:column;
+
 }
 
 .project-card::before{
@@ -507,6 +511,16 @@ body{
     line-height:1.7;
 
     font-size:.96rem;
+
+    margin-bottom:20px;
+
+}
+
+.project-card .primary-btn{
+
+    display:inline-block;
+
+    margin-top:auto;
 
 }
 
