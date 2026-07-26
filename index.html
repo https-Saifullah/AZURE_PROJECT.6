@@ -1,64 +1,94 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saisha Goel — AI Business Card</title>
+    <title>Saif Hasan — AI Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        
+
         <!-- Hero Section -->
         <div class="hero">
-            <div class="avatar">SG</div>
-            <h1>Saisha Goel</h1>
-            <p class="tagline">CSE Student · Mentor · Loves Building Projects using Azure </p>
+            <div class="avatar">SH</div>
+            <h1>Saif Hasan</h1>
+            <p class="tagline">
+                3rd Year CSE Student · AI Engineer · Full Stack Developer · Building Intelligent Applications
+            </p>
+
             <div class="tags">
+                <span class="tag">Artificial Intelligence</span>
+                <span class="tag">Machine Learning</span>
+                <span class="tag">Deep Learning</span>
                 <span class="tag">Azure AI</span>
-                <span class="tag">Cloud</span>
-                <span class="tag">Cybersecurity</span>
                 <span class="tag">Python</span>
+                <span class="tag">Flask</span>
                 <span class="tag">JavaScript</span>
+                <span class="tag">Cloud</span>
             </div>
         </div>
 
         <!-- Projects Section -->
         <div class="section">
-            <h2>What I've Built</h2>
+            <h2>Featured Projects</h2>
+
             <div class="projects">
+
+                <div class="project-card">
+                    <span class="project-icon">🛡️</span>
+                    <h3>SafeRoute AI</h3>
+                    <p>
+                        AI-powered navigation system that recommends the safest routes using Azure Maps and Azure AI.
+                    </p>
+                </div>
+
                 <div class="project-card">
                     <span class="project-icon">🎤</span>
                     <h3>EchoAI</h3>
-                    <p>Voice Notes App using Azure AI Speech</p>
+                    <p>
+                        Voice Notes application with Speech-to-Text and Text-to-Speech using Azure AI Speech.
+                    </p>
                 </div>
-                <div class="project-card">
-                    <span class="project-icon">🤖</span>
-                    <h3>FAQBot</h3>
-                    <p>Smart FAQ Assistant using Azure OpenAI</p>
-                </div>
+
                 <div class="project-card">
                     <span class="project-icon">📄</span>
                     <h3>AskMyDocs</h3>
-                    <p>RAG App using Azure AI Search</p>
+                    <p>
+                        AI-powered document assistant built using Azure AI Search and Azure OpenAI.
+                    </p>
                 </div>
+
             </div>
         </div>
 
         <!-- AI Chat Section -->
         <div class="section">
             <h2>Chat with My AI</h2>
-            <p class="chat-desc">Ask anything about her, her projects, skills, or interests.</p>
+
+            <p class="chat-desc">
+                Ask anything about my projects, technical skills, experience, Azure AI work, or interests.
+            </p>
+
             <div id="chatBox" class="chat-box">
-                <div class="message bot">👋 Hi! I'm Saisha's AI. Ask me anything about her!</div>
+                <div class="message bot">
+                    👋 Hi! I'm Saif's AI assistant. Ask me anything about my projects, skills, or experience!
+                </div>
             </div>
+
             <div class="input-row">
-                <input type="text" id="userInput" placeholder="Ask me something..." />
+                <input
+                    type="text"
+                    id="userInput"
+                    placeholder="Ask me about my projects, Azure, AI, or experience..."
+                />
                 <button id="sendBtn">Ask</button>
             </div>
         </div>
 
     </div>
+
     <script src="app.js"></script>
 </body>
 </html>
