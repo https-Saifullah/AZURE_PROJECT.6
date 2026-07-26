@@ -1,67 +1,195 @@
-// AI Business Card — Azure OpenAI Chat
+// ==============================
+// Saif Hasan AI Portfolio
+// Azure OpenAI Chat
+// ==============================
 
-const sendBtn = document.getElementById('sendBtn');
-const userInput = document.getElementById('userInput');
-const chatBox = document.getElementById('chatBox');
+const sendBtn = document.getElementById("sendBtn");
+const userInput = document.getElementById("userInput");
+const chatBox = document.getElementById("chatBox");
 
-// Your personal system prompt — this defines your AI
-const systemPrompt = `You are an AI assistant representing Saisha Goel, a final-year Computer Science Engineering student at Amity University, Noida. You are a student mentor with a focus on Azure and cloud technologies.
+// ==============================
+// AI System Prompt
+// ==============================
 
-Your skills include: Azure AI, Cloud Computing, Python, C++, Artificial Intelligence, Machine Learning, Prompt Engineering, Technical Writing, Generative AI and Cybersecurity.
+const systemPrompt = `
+You are an AI assistant representing Saif Hasan.
 
-Projects you have built:
-- EchoAI: A voice notes app using Azure AI Speech with Speech-to-Text and Text-to-Speech
-- FAQBot: A smart FAQ assistant using Azure OpenAI with customisable system prompts
-- AskMyDocs: A RAG application using Azure AI Search and Azure OpenAI that answers questions from uploaded PDFs
+About Saif:
+- Name: Saif Hasan
+- 3rd Year Computer Science Engineering student at Amity University, Noida.
+- AI Engineer and Full Stack Developer.
+- Passionate about Artificial Intelligence, Machine Learning, Deep Learning, Cloud Computing and building intelligent software.
+- Experienced with Azure AI services and modern web technologies.
 
-You are passionate about cloud technology, AI and ML and building things that matter. You are friendly, concise, and professional.
+Technical Skills:
+• Python
+• JavaScript
+• HTML
+• CSS
+• Flask
+• Azure OpenAI
+• Azure AI Speech
+• Azure AI Vision
+• Azure AI Search
+• Azure Maps
+• Git & GitHub
+• Prompt Engineering
+• Machine Learning
+• Deep Learning
+• REST APIs
 
-Only answer questions about Saisha — her skills, projects, interests and background. If asked anything unrelated, politely redirect the conversation back to Saisha.`;
+Projects:
 
-// Add message to chat
+1. Echo AI
+An AI-powered voice assistant using Azure AI Speech that provides Speech-to-Text and Text-to-Speech functionality.
+
+2. Smart Image Tagger
+An AI application built with Azure AI Vision that automatically generates captions and descriptive tags for uploaded images.
+
+3. SoccerGPT
+An intelligent football assistant powered by Azure OpenAI that answers football-related questions and provides insights.
+
+Current Project:
+SafeRoute AI
+An AI-powered navigation platform built using Flask, Azure Maps and Azure AI services that recommends safer routes based on safety scores and intelligent analysis.
+
+Career Goals:
+- Become an AI Engineer.
+- Build impactful AI products.
+- Work on real-world Machine Learning and Deep Learning solutions.
+- Continuously learn new technologies and contribute to innovative software.
+
+Personality:
+- Friendly
+- Professional
+- Helpful
+- Confident
+- Concise
+
+Instructions:
+- Answer ONLY questions related to Saif Hasan.
+- Answer questions about his projects, education, experience, skills, technologies, goals and interests.
+- If someone asks unrelated questions (politics, celebrities, random trivia, etc.), politely explain that you're designed to answer questions about Saif Hasan and invite them to ask about his work instead.
+- Keep answers concise but informative.
+- Never invent achievements or experience.
+- If information is unknown, clearly state that it isn't available.
+`;
+
+// ==============================
+// Add Message
+// ==============================
+
 function addMessage(text, type) {
-    const msg = document.createElement('div');
-    msg.classList.add('message', type);
+
+    const msg = document.createElement("div");
+
+    msg.classList.add("message", type);
+
     msg.textContent = text;
+
     chatBox.appendChild(msg);
+
     chatBox.scrollTop = chatBox.scrollHeight;
+
     return msg;
+
 }
 
-// Send message to Azure Function
+// ==============================
+// Send Message
+// ==============================
+
 async function sendMessage() {
+
     const message = userInput.value.trim();
+
     if (!message) return;
 
-    addMessage(message, 'user');
-    userInput.value = '';
+    addMessage(message, "user");
+
+    userInput.value = "";
+
     sendBtn.disabled = true;
 
-    const loadingMsg = addMessage('🤖 Thinking...', 'loading');
+    const loadingMsg = addMessage("🤖 Thinking...", "loading");
 
     try {
-        const response = await fetch('/api/chat', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ message, systemPrompt })
+
+        const response = await fetch("/api/chat", {
+
+            method: "POST",
+
+            headers: {
+
+                "Content-Type": "application/json"
+
+            },
+
+            body: JSON.stringify({
+
+                message,
+
+                systemPrompt
+
+            })
+
         });
 
-        const data = await response.json();
-        chatBox.removeChild(loadingMsg);
-        addMessage(data.reply, 'bot');
+        if (!response.ok) {
 
-    } catch (error) {
-        chatBox.removeChild(loadingMsg);
-        addMessage('Error connecting. Please refresh.', 'bot');
+            throw new Error("Server Error");
+
+        }
+
+        const data = await response.json();
+
+        loadingMsg.remove();
+
+        addMessage(data.reply, "bot");
+
+    }
+
+    catch (error) {
+
+        loadingMsg.remove();
+
+        addMessage(
+            "⚠️ Sorry, I couldn't connect to the AI service. Please try again in a moment.",
+            "bot"
+        );
+
+        console.error(error);
+
     }
 
     sendBtn.disabled = false;
+
+    userInput.focus();
+
 }
 
-// Send on button click
-sendBtn.addEventListener('click', sendMessage);
+// ==============================
+// Event Listeners
+// ==============================
 
-// Send on Enter key
-userInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') sendMessage();
+sendBtn.addEventListener("click", sendMessage);
+
+userInput.addEventListener("keypress", (e) => {
+
+    if (e.key === "Enter") {
+
+        sendMessage();
+
+    }
+
 });
+
+// ==============================
+// Focus input on page load
+// ==============================
+
+window.onload = () => {
+
+    userInput.focus();
+
+};
